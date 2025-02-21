@@ -22,14 +22,4 @@ A **Promotize** é uma plataforma digital inovadora que facilita a conexão entr
 - **Gustavo Fonseca Da Silva**  
 - **Isaias Leite De Moraes Gomes**  
 - **Jayfferson Silva Fernandes**  
-- **Vinicius Guedes De Barros**  
-
-## 🚀 Tecnologias Utilizadas  
-
-- **Frontend:** HTML, CSS, JavaScript  
-- **Backend:** [Adicionar se houver]  
-- **Banco de Dados:** [Adicionar se houver]  
-
-## 📩 Contato  
-
-Caso tenha dúvidas ou sugestões, entre em contato com nossa equipe!  
+- **Vinicius Guedes De Barros** 
