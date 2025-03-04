@@ -7,7 +7,7 @@ import {
   SignedOut,
   SignInButton,
 } from "@clerk/nextjs";
-import { Tags, Loader2Icon, LogIn } from "lucide-react";
+import { Loader2Icon, LogIn, Tag } from "lucide-react";
 
 import logo from "@/assets/logo.png";
 
@@ -38,7 +38,7 @@ export function Header() {
           <Link href="/app">
             <Button variant="default" className="bg-green hover:bg-green/90">
               Painel
-              <Tags className="size-4" />
+              <Tag className="size-4" />
             </Button>
           </Link>
         </SignedIn>
