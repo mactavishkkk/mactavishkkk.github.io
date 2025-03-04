@@ -1,11 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ClerkLoaded, ClerkLoading, SignedIn, UserButton } from "@clerk/nextjs";
+import { ClerkLoaded, ClerkLoading, SignedIn } from "@clerk/nextjs";
 import { Loader2Icon } from "lucide-react";
 
 import logo from "@/assets/logo.png";
 
 import { Button } from "@/components/ui/button";
+import { UserMenu } from "@/components/general/app/user-menu";
 
 export function Header() {
   return (
@@ -21,7 +22,7 @@ export function Header() {
       </ClerkLoading>
       <ClerkLoaded>
         <SignedIn>
-          <UserButton />
+          <UserMenu />
         </SignedIn>
       </ClerkLoaded>
     </div>
