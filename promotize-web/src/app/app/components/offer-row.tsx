@@ -6,6 +6,7 @@ import { TableCell, TableRow } from "@/components/ui/table";
 import { UpdateOfferDialog } from "@/components/general/app/update-offer-dialog";
 
 import { formatCurrency } from "@/utils/format-currency";
+import { Laptop } from "lucide-react";
 
 interface Props {
   data: Offer;
@@ -17,9 +18,10 @@ export function OfferRow({ data }: Props) {
       <TableCell className="font-semibold">{data.title}</TableCell>
       <TableCell className="text-muted-foreground gap-2">
         <div className="flex flex-wrap items-center gap-2">
-          <Badge variant="outline">Categoria 1</Badge>
-          <Badge variant="outline">Categoria 1</Badge>
-          <Badge variant="outline">Categoria 1</Badge>
+          <Badge variant="outline">
+            <Laptop className="size-3" />
+            Tecnologia
+          </Badge>
         </div>
       </TableCell>
       <TableCell>
