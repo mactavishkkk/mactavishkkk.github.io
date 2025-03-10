@@ -1,6 +1,6 @@
 import { SignOutButton } from "@clerk/nextjs";
 import { currentUser } from "@clerk/nextjs/server";
-import { LogOut, Store } from "lucide-react";
+import { LogOut, Store, User } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -22,27 +22,29 @@ export async function UserMenu() {
     <Dialog>
       <DropdownMenu>
         <DropdownMenuTrigger className="cursor-pointer outline-none">
-          <Avatar className="size-8">
+          <Avatar className="size-10">
             <AvatarImage src={user?.imageUrl} />
             <AvatarFallback>US</AvatarFallback>
           </Avatar>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="end">
+        <DropdownMenuContent align="end" className="w-48">
           <DropdownMenuGroup>
+            <DropdownMenuItem className="p-3">
+              <User className="size-4" />
+              <span className="ml-2">Meu Perfil</span>
+            </DropdownMenuItem>
             <DialogTrigger asChild>
-              <DropdownMenuItem className="py-2">
+              <DropdownMenuItem className="p-3">
                 <Store className="size-4" />
-                <span>Empresa</span>
+                <span className="ml-2">Minha Empresa</span>
               </DropdownMenuItem>
             </DialogTrigger>
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
           <SignOutButton>
-            <DropdownMenuItem className="group p-2">
+            <DropdownMenuItem className="group p-3">
               <LogOut className="group-hover:text-danger text-muted-foreground size-4" />
-              <span className="text-muted-foreground group-hover:text-danger">
-                Sair
-              </span>
+              <span className="group-hover:text-danger ml-2">Sair</span>
             </DropdownMenuItem>
           </SignOutButton>
         </DropdownMenuContent>

@@ -128,9 +128,9 @@ export function OfferForm({ defaultValues, offerId }: Props) {
           )}
         />
 
-        <DialogFooter className="gap-5">
+        <DialogFooter>
           {offerId && (
-            <Button type="submit" variant="secondary">
+            <Button variant="ghost" className="mr-auto">
               <Trash className="size-4" /> Excluir oferta
             </Button>
           )}

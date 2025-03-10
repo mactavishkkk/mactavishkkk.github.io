@@ -30,8 +30,8 @@ export function CompanyForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: "",
-      description: "",
+      name: "TechMax",
+      description: "Uma empresa de produtos de tecnologia.",
     },
   });
 
