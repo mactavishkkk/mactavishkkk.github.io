@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+
 import { Tag } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -12,8 +16,14 @@ import {
 import { OfferForm } from "./offer-form";
 
 export function CreateOfferDialog() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  function handleClose() {
+    setIsOpen(false);
+  }
+
   return (
-    <Dialog>
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
         <Button className="bg-green hover:bg-green/90">
           <Tag className="size-4" />
@@ -28,7 +38,7 @@ export function CreateOfferDialog() {
           </DialogDescription>
         </DialogHeader>
         <div className="mt-5">
-          <OfferForm />
+          <OfferForm closeDialog={handleClose} />
         </div>
       </DialogContent>
     </Dialog>

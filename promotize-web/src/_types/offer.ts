@@ -1,7 +1,12 @@
 export type Offer = {
   id: string;
   title: string;
-  amount: number;
+  originalPrice: number;
+  offerPrice: number;
+  category: string;
   description: string;
-  active: boolean;
+  isActive: boolean;
+  owner?: {
+    companyName?: string | null;
+  };
 };

@@ -8,7 +8,11 @@ import logo from "@/assets/logo.png";
 import { Button } from "@/components/ui/button";
 import { UserMenu } from "@/components/general/app/user-menu";
 
-export function Header() {
+import { getUserCompanyInfo } from "@/actions/data-layer/get-user-company-info";
+
+export async function Header() {
+  const { company } = await getUserCompanyInfo();
+
   return (
     <div className="bg-background/80 border-border sticky top-0 z-50 flex w-full border-b px-5 py-8 backdrop-blur-sm md:py-0">
       <div className="mx-auto flex w-full max-w-[1240px] items-center justify-between px-5 py-5">
@@ -23,7 +27,7 @@ export function Header() {
         </ClerkLoading>
         <ClerkLoaded>
           <SignedIn>
-            <UserMenu />
+            <UserMenu additionalInfo={{ company }} />
           </SignedIn>
         </ClerkLoaded>
       </div>

@@ -8,9 +8,11 @@ import {
 
 import { OfferRow } from "./offer-row";
 
-import { offersMock as offers } from "@/mock-data/offers-mock";
+import { getUserOffers } from "@/actions/data-layer/get-user-offers";
 
-export function OffersTable() {
+export async function OffersTable() {
+  const { offers } = await getUserOffers();
+
   return (
     <Table>
       <TableHeader>

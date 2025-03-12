@@ -15,7 +15,15 @@ import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 
 import { CompanyDialog } from "./company-dialog";
 
-export async function UserMenu() {
+import { UserCompany } from "@/_types/user-company";
+
+interface Props {
+  additionalInfo: {
+    company: UserCompany;
+  };
+}
+
+export async function UserMenu({ additionalInfo }: Props) {
   const user = await currentUser();
 
   return (
@@ -50,7 +58,7 @@ export async function UserMenu() {
         </DropdownMenuContent>
       </DropdownMenu>
 
-      <CompanyDialog />
+      <CompanyDialog data={additionalInfo.company} />
     </Dialog>
   );
 }

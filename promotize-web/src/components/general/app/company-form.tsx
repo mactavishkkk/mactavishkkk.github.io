@@ -3,6 +3,7 @@
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { Loader2 } from "lucide-react";
 
 import {
   Form,
@@ -16,6 +17,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { DialogFooter } from "@/components/ui/dialog";
 import { Textarea } from "@/components/ui/textarea";
+import { updateUserCompany } from "@/actions/user/update-user-company";
+
+import { UserCompany } from "@/_types/user-company";
+
+import { toast } from "sonner";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -26,17 +32,33 @@ const formSchema = z.object({
   }),
 });
 
-export function CompanyForm() {
+interface Props {
+  defaultValues?: UserCompany;
+}
+
+export function CompanyForm({ defaultValues }: Props) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: "TechMax",
-      description: "Uma empresa de produtos de tecnologia.",
+      name: defaultValues?.companyName ?? "",
+      description: defaultValues?.companyDescription ?? "",
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    try {
+      await updateUserCompany({
+        companyName: values.name,
+        companyDescription: values.description,
+      });
+
+      toast.success("Alterações salvas", {
+        description: "Os dados da empresa foram atualizados.",
+      });
+    } catch (error) {
+      console.log(error);
+      toast.error("Erro ao atualizar informações da empresa.");
+    }
   }
 
   return (
@@ -75,7 +97,12 @@ export function CompanyForm() {
         />
 
         <DialogFooter>
-          <Button type="submit">Salvar</Button>
+          <Button type="submit" disabled={form.formState.isSubmitting}>
+            Salvar
+            {form.formState.isSubmitting && (
+              <Loader2 className="size-4 animate-spin" />
+            )}
+          </Button>
         </DialogFooter>
       </form>
     </Form>
