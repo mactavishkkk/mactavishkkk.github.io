@@ -187,7 +187,7 @@ footer {
 .banner-mensagem {
     background: linear-gradient(90deg, #61d761, #45e662); /* Gradiente suave */
     color: white;
-    height: 400px; /* Altura ajustável */
+    /* height: 400px; Altura ajustável */
     display: flex;
     justify-content: center;
     align-items: center;
